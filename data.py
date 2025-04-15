@@ -3,7 +3,7 @@ from xmlrpc.client import boolean
 import requests
 
 parameters ={
-    "amount": 10,
+    "amount": 50,
     "type": "boolean"
 }
 
