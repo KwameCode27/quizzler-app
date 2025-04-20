@@ -18,6 +18,7 @@ class QuizInterface:
 
         self.canvas = Canvas(width=300, height=500, bg="white")
         self.text_display =self.canvas.create_text(text="Some of the Question",)
+        self.canvas.grid()
 
 
 
