@@ -2,6 +2,7 @@ from xmlrpc.client import boolean
 
 import requests
 
+#   parameters given to access the API
 parameters ={
     "amount": 50,
     "type": "boolean"

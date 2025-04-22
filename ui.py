@@ -6,7 +6,9 @@ THEME_COLOR = "#375362"
 
 
 class QuizInterface:
-    def __init__(self):
+    def __init__(self, quiz_brain: QuizBrain):
+        self.quiz = quiz_brain
+
         self.windows = Tk()
         self.windows.title("Quizzler")
         self.windows.geometry("400x500")  # Starting size
@@ -21,10 +23,10 @@ class QuizInterface:
         self.text_display =self.canvas.create_text(
             150,
             250,
+            width=280,
             text=f"Some Question Text",
             fill=THEME_COLOR,
             font=("Arial",20,"italic")
-
         )
         self.canvas.grid(row= 1 ,column= 0, columnspan=2, pady=50)
 
@@ -41,3 +43,7 @@ class QuizInterface:
 
 
         self.windows.mainloop()
+
+    def get_next_question(self):
+        quiz_text = self.quiz.next_question()
+        self.canvas.itemconfig(self.text_display, text=quiz_text)
