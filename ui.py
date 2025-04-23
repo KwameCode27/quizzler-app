@@ -35,7 +35,7 @@ class QuizInterface:
         self.true_button.grid(row=2, column=0)
 
         false_image= PhotoImage(file="images/false.png")
-        self.false_button =  Button(image=false_image, highlightthickness=0)
+        self.false_button =  Button(image=false_image, highlightthickness=0 , command=)
         self.false_button.grid(row=2, column=1)
 
 
@@ -47,3 +47,7 @@ class QuizInterface:
     def get_next_question(self):
         quiz_text = self.quiz.next_question()
         self.canvas.itemconfig(self.text_display, text=quiz_text)
+
+
+    def get_check_answer(self):
+        text_answer = self.quiz.check_answer()
