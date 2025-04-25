@@ -5,7 +5,7 @@ from quiz_brain import QuizBrain
 THEME_COLOR = "#375362"
 
 
-class QuizInterface:
+class QuizInterface:    
     def __init__(self, quiz_brain: QuizBrain):
         self.quiz = quiz_brain
 
@@ -74,5 +74,4 @@ class QuizInterface:
 
 
 
-    # def get_check_answer(self):
-    #     text_answer = self.quiz.check_answer()
+
