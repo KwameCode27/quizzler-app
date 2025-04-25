@@ -24,7 +24,7 @@ class QuizInterface:
             width=250,
             text=f"Some Question Text",
             fill=THEME_COLOR,
-            font=("Arial",20,"italic")
+            font=("Arial",16,"italic")
         )
         self.canvas.grid(row= 1 ,column= 0, columnspan=2, pady=50)
 
@@ -43,8 +43,15 @@ class QuizInterface:
         self.windows.mainloop()
 
     def get_next_question(self):
-        quiz_text = self.quiz.next_question()
-        self.canvas.itemconfig(self.text_display, text=quiz_text)
+        if self.quiz.still_has_questions():
+            self.canvas.config(bg="white")
+            self.score_board.config(text=f"Score: {self.quiz.score}")
+            quiz_text = self.quiz.next_question()
+            self.canvas.itemconfig(self.text_display, text=quiz_text)
+        else:
+            self.canvas.config(bg="white")
+            self.canvas.itemconfig(self.text_display, text= f"You've completed the quiz\n\nYour final Score : {self.quiz.score}/{self.quiz.question_number}")
+
 
     def true_pressed(self):
         is_right = self.quiz.check_answer("True")
@@ -52,16 +59,16 @@ class QuizInterface:
 
 
     def false_pressed(self):
-        is_right=self.quiz.check_answer("False")
-        self.give_feedback(is_right)
+        self.give_feedback(self.quiz.check_answer("False"))
 
 
     def give_feedback(self, is_right):
-        self.windows.after(1000, self.quiz.next_question(), self.canvas)
-        if is_right =="True":
-            self.canvas.config(bg="Green")
-        elif is_right=="False":
-            self.canvas.config(bg="Red")
+        if is_right:
+            self.canvas.config(bg="green")
+        else:
+            self.canvas.config(bg="red")
+
+        self.windows.after(1000, self.get_next_question)
 
 
 
