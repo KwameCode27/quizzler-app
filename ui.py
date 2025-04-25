@@ -51,6 +51,8 @@ class QuizInterface:
         else:
             self.canvas.config(bg="white")
             self.canvas.itemconfig(self.text_display, text= f"You've completed the quiz\n\nYour final Score : {self.quiz.score}/{self.quiz.question_number}")
+            self.true_button.config(state="disabled")
+            self.false_button.config(state="disabled")
 
 
     def true_pressed(self):
@@ -67,7 +69,6 @@ class QuizInterface:
             self.canvas.config(bg="green")
         else:
             self.canvas.config(bg="red")
-
         self.windows.after(1000, self.get_next_question)
 
 
