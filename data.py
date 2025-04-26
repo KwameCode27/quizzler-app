@@ -4,7 +4,7 @@ import requests
 
 #   parameters given to access the API
 parameters ={
-    "amount": 20,
+    "amount": 10,
     "type": "boolean",
 }
 
