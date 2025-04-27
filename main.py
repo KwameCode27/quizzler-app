@@ -15,8 +15,8 @@ quiz = QuizBrain(question_bank)
 quiz_ui = QuizInterface(quiz)
 quiz_ui.score_board.grid()
 
-# while quiz.still_has_questions():
-#     quiz.next_question()
+
+
 
 
 
