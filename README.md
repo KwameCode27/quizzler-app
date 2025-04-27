@@ -4,6 +4,7 @@
 
 ## Overview
 
+
 Quizzler Pro is an interactive true/false quiz application built with Python and Tkinter. The application features a modern, responsive UI with visual feedback, progress tracking, and a score counter.
 
 ## Features
